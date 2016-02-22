@@ -101,13 +101,15 @@
                 <div class="col-sm-12">
                     <h3 class="text-center"> Oli Huggins</h3>
                     <h4 class="mt25">Current Role: </h4>
-                    <select class="form-control">
-                      <option>Junior Mobile Developer</option>
-                      <option>Senior Mobile Developer</option>
-                      <option>Front-end Web Developer</option>
-                      <option>Back-end Web Developer</option>
-                      <option>Full-Stack Developer</option>
-                    </select>
+                    <h5><b>Junior Mobile Developer </b><a href="#" class="pull-right">Change</a></h5>
+                    <h5><b>$32,000/year </b><a href="#" class="pull-right">Change</a></h5>
+                    <h4 class="mt25">Recommended Role: </h4>
+                    <h5><b>Senior iOS Mobile Developer </b><a href="#" class="pull-right">View</a></h5>
+                    <h4 class="mt25">Recommended Salary: </h4>
+                    <h5><b>$41,000/year </b><a href="#" class="pull-right">View</a></h5>
+                    <h4 class="mt25">Most Valuable Skill: </h4>
+                    <h5><b>Reactive Java Programming</b><a href="#" class="pull-right">View</a></h5>
+                    <a href="skills.html" class="btn btn-primary btn-lg btn-block mt15"> My Skill Map</a>
                     <h4 class="mt25">My Aspiration: </h4>
                     <select class="form-control">
                       <option>Android Developer @ Google</option>
@@ -117,9 +119,7 @@
                       <option>Senior Game Developer @ Steam</option>
                     </select>
                     <a href="index.html" class="btn btn-default btn-lg btn-block mt15"> Compare Skills</a>
-
-                    <h4 class="mt35">My Skill Cards: <span class="ml10"><b>4</b></span></h4>
-                    <a href="skills.html" class="btn btn-primary btn-lg btn-block mt15"> My Skill Map</a>
+                    
                 </div>
             </ul>
         </div>
@@ -130,10 +130,12 @@
 
             <div id="book-wrapper" onload="finishLoad()" ng-include="" src="views.book" class="ng-scope container-fluid">               
 
-                <div class="col-sm-12">
+                <div class="row">
                     
                 	<div class="hidden-xs">
-                        <h2>Android Developer @ Google<button class="btn btn-primary pull-right" data-toggle="modal" data-target="#jobDesc">View Job Details</button></h2>
+                        <h2>Android Developer @ Google<span class="ml35 small" style="font-weight:300;">$70-80,000/year</span><button class="btn btn-primary pull-right" data-toggle="modal" data-target="#jobDesc">View Job Details</button></h2>
+                        <p>Does a creating innovative Android experience while leveraging enterprise APIs excite you? Want to impact the world’s largest mobile marketplace? We have a place for you! 
+                                      </p>
                         <hr>
                     </div>
 
@@ -141,7 +143,7 @@
                         <div class="well">
                             <h4 class="text-center mt0 mb0">Android Programming</h4>
                             <hr class="mt10">
-                            <div class="panel panel-default panel-programming" data-toggle="modal" data-target="#ReactiveJavaProgramming">
+                            <div class="panel panel-default panel-programming mb0" data-toggle="modal" data-target="#ReactiveJavaProgramming">
                               <div class="panel-body">
                                 <h5 class="text-center">Reactive Java Programming</h5>
                                 <div class="progress mt20 mb10">
@@ -150,6 +152,7 @@
                                 </div>
                               </div>
                             </div>
+                            <div class="text-center" style="font-size:36px; color:#A7A5A5;"><i class="fa fa-chevron-circle-down"></i></div>
                             <div class="panel panel-default programming-notstarted" data-toggle="modal" data-target="#RESTfulJavaProgramming">
                               <div class="panel-body">
                                 <h5 class="text-center">RESTful Java Programming</h5>
@@ -165,7 +168,7 @@
                         <div class="well">
                             <h4 class="text-center mt0 mb0">Core Android Development</h4>
                             <hr class="mt10">
-                            <div class="panel panel-default panel-androiddev" data-toggle="modal" data-target="#AndroidDevelopmentFundamentals">
+                            <div class="panel panel-default panel-androiddev mb0" data-toggle="modal" data-target="#AndroidDevelopmentFundamentals">
                               <div class="panel-body">
                                 <h5 class="text-center">Android Development Fundamentals</h5>
                                 <div class="progress mt20 mb10">
@@ -174,7 +177,8 @@
                                 </div>
                               </div>
                             </div>
-                            <div class="panel panel-default androiddev-notstarted" data-toggle="modal" data-target="#AndroidUIDesign">
+                            <div class="text-center" style="font-size:36px; color:#A7A5A5;"><i class="fa fa-chevron-circle-down"></i></div>
+                            <div class="panel panel-default androiddev-notstarted mb0" data-toggle="modal" data-target="#AndroidUIDesign">
                               <div class="panel-body">
                                 <h5 class="text-center">Android UI Design</h5>
                                 <div class="progress mt20 mb10">
@@ -183,7 +187,8 @@
                                 </div>
                               </div>
                             </div>
-                            <div class="panel panel-default androiddev-notstarted" data-toggle="modal" data-target="#AdvancedAndroidDevelopment">
+                            <div class="text-center" style="font-size:36px; color:#A7A5A5;"><i class="fa fa-chevron-circle-down"></i></div>
+                            <div class="panel panel-default androiddev-notstarted mb0" data-toggle="modal" data-target="#AdvancedAndroidDevelopment">
                               <div class="panel-body">
                                 <h5 class="text-center">Advanced Android Development</h5>
                                 <div class="progress mt20 mb10">
@@ -192,6 +197,7 @@
                                 </div>
                               </div>
                             </div>
+                            <div class="text-center" style="font-size:36px; color:#A7A5A5;"><i class="fa fa-chevron-circle-down"></i></div>
                             <div class="panel panel-default androiddev-notstarted" data-toggle="modal" data-target="#AndroidHighPerformance">
                               <div class="panel-body">
                                 <h5 class="text-center">Android High Performance</h5>
@@ -207,7 +213,7 @@
                         <div class="well">
                             <h4 class="text-center mt0 mb0">Android Developer Tools</h4>
                             <hr class="mt10">
-                            <div class="panel panel-default panel-androidtools" data-toggle="modal" data-target="#AndroidStudioCrashCourse">
+                            <div class="panel panel-default panel-androidtools mb0" data-toggle="modal" data-target="#AndroidStudioCrashCourse">
                               <div class="panel-body">
                                 <h5 class="text-center">Android Studio Crash Course</h5>
                                 <div class="progress mt20 mb10">
@@ -216,7 +222,8 @@
                                 </div>
                               </div>
                             </div>
-                            <div class="panel panel-default panel-androidtools" data-toggle="modal" data-target="#GitUptoSpeed">
+                            <div class="text-center" style="font-size:36px; color:#A7A5A5;"><i class="fa fa-chevron-circle-down"></i></div>
+                            <div class="panel panel-default panel-androidtools mb0" data-toggle="modal" data-target="#GitUptoSpeed">
                               <div class="panel-body">
                                 <h5 class="text-center">Git Up to Speed</h5>
                                 <div class="progress mt20 mb10">
@@ -225,6 +232,7 @@
                                 </div>
                               </div>
                             </div>
+                            <div class="text-center" style="font-size:36px; color:#A7A5A5;"><i class="fa fa-chevron-circle-down"></i></div>
                             <div class="panel panel-default androidtools-notstarted" data-toggle="modal" data-target="#AdministeringJira">
                               <div class="panel-body">
                                 <h5 class="text-center">Administering Jira</h5>
@@ -863,8 +871,7 @@
                                         <div class="progress-bar ux progress-bar-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:7%">
                                         </div>
                                       </div>
-                                      <p>Does a creating innovative Android experience while leveraging enterprise APIs excite you? Want to impact the world’s largest mobile marketplace? We have a place for you! eBay's is looking for an Android Engineer who is passionate about creating apps consumers love. This is an amazing opportunity to join a world leader in mobile commerce and directly impact the lives of a global population while increasing the revenue of eBay exponentially.
-                                      </p>
+                                      
                                       <h4 class="mt25">Job Requirements:</h4>
                                       <p>We are a world leader in mobile commerce and directly impact the lives of a global population. Our app, with over 90 million total installs, brings in billions in revenue and is the entry point for a good portion of our customers. Join our tightly knit team of superstars who enjoy working on large-scale challenging and interesting problems. We work in small focused, collaborative project teams following an agile methodology. Cross functional teams including product management, product development, and UXD work on a daily basis to create a successful product that delights our customers.
 You will feel like you’re working in a start-up, whilst at the same time having the resources of a large company. Working at eBay is a rewarding, challenging and inspiring experience.
