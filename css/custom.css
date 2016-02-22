@@ -44,8 +44,16 @@ h5, h6, .h5, .h6 {
 .navbar-avatar-link {
 	padding-bottom:7px !important;
 }
+.panel h4 {
+	font-weight: 700;
+	color: white;
+}
 .panel-programming {
 	background: #3FBBE2;
+	border: 1px solid #fff;
+}
+.panel-programming-maybe {
+	background: #B5B4B5;
 	border: 1px solid #fff;
 }
 .panel-androiddev {
