@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Learning C++ by Creating Games with UE4 - Chapter 3. Looping</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+    <!-- Custom CSS -->
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+    <link href="css/general.css" rel="stylesheet">
+    <link href="css/bootstrap-xl.css" rel="stylesheet">
+
+
+
+    <!-- Devicons -->
+    <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/master/devicon.min.css">
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="css/prism.css">
+
+    <!-- Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,700' rel='stylesheet' type='text/css'>
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body class="language-markup">
+
+  
+
+    <div id="wrapper">
+
+        <!-- Top Nav Bar -->
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand" href="library.html"><img class="brand-logo" src="images/white-packt.png"/></a>
+                  <a class="navbar-brand toggle-nav" href="#menu-toggle" id="menu-toggle"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span></a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="active"><a href="library.html">My Library</a></li>
+                        <li><a href="https://www.packtpub.com">Store</a></li>
+                        <li class="dropdown">
+                        <a href="#" class="dropdown-toggle visible-xs" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account<span class="caret ml5"></span>
+                        </a>
+                        <a href="#" class="dropdown-toggle navbar-avatar-link hidden-xs" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <img src="https://media.licdn.com/mpr/mpr/shrinknp_200_200/p/8/000/222/015/06be2f6.jpg" alt="..." class="img-circle img-responsive navbar-avatar">
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li> <a href="#">View Account</a></li> 
+                            <li><a href="#">View Subscriptions</a></li> 
+                            <li><a href="#">View Licences</a></li> 
+                            <li role="separator" class="divider"></li> 
+                            <li><a href="library-lo.html">Logout</a></li> 
+                        </ul> 
+                    </li>
+                    </ul>
+                    <form class="navbar-form navbar-right search-nav-collapse">
+                        <div class="form-group pull-right" style="display:inline;">
+                            <div class="input-group">
+                              <input class="form-control" type="text" placeholder="Search the library...">
+                              <span class="input-group-btn"><a href="search.html" class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></a></span>
+                            </div>
+                        </div>
+                    </form>
+                </div><!--/.nav-collapse -->
+            </div>
+        </nav>
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+
+            <ul class="sidebar-nav">
+                <div class="col-sm-offset-3 col-sm-6 text-center">
+                    <img src="https://media.licdn.com/mpr/mpr/shrinknp_200_200/p/8/000/222/015/06be2f6.jpg" alt="..." class="img-thumbnail img-responsive">
+                </div>
+                <div class="col-sm-12">
+                    <h3 class="text-center"> Oli Huggins</h3>
+                    <h4 class="mt25">Current Role: </h4>
+                    <select class="form-control">
+                      <option>Junior Mobile Developer</option>
+                      <option>Senior Mobile Developer</option>
+                      <option>Front-end Web Developer</option>
+                      <option>Back-end Web Developer</option>
+                      <option>Full-Stack Developer</option>
+                    </select>
+                    <h4 class="mt25">My Aspiration: </h4>
+                    <select class="form-control">
+                      <option>Android Developer @ Google</option>
+                      <option>Full-Stack Developer @ Amazon</option>
+                      <option>SysAdmin @ Steam</option>
+                      <option>Web Developer @ Google</option>
+                      <option>Senior Game Developer @ Steam</option>
+                    </select>
+
+                    <h4 class="mt35">My Skill Cards: <span class="ml10"><b>4</b></span></h4>
+                    <a href="skills.html" class="btn btn-primary btn-lg btn-block mt15"> My Skill Map</a>
+                </div>
+            </ul>
+        </div>
+
+        <!-- /#sidebar-wrapper -->
+
+        <div id="page-content-wrapper" class="book-page ng-scope">
+
+            <div id="book-wrapper" onload="finishLoad()" ng-include="" src="views.book" class="ng-scope container-fluid">               
+
+                <div class="col-sm-12">
+                    
+                	<div class="hidden-xs">
+                        <h2>Android Developer @ Google<button class="btn btn-primary pull-right" data-toggle="modal" data-target="#jobDesc">View Job Details</button></h2>
+                        <hr>
+                    </div>
+
+                    <div class="col-lg-4 col-sm-6 col-md-4">
+                        <div class="well">
+                            <h4 class="text-center mt0 mb0">Android Programming</h4>
+                            <hr class="mt10">
+                            <div class="panel panel-default panel-programming" data-toggle="modal" data-target="#ReactiveJavaProgramming">
+                              <div class="panel-body">
+                                <h5 class="text-center">Reactive Java Programming</h5>
+                                <div class="progress mt20 mb10">
+                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                                    </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="panel panel-default programming-notstarted" data-toggle="modal" data-target="#RESTfulJavaProgramming">
+                              <div class="panel-body">
+                                <h5 class="text-center">RESTful Java Programming</h5>
+                                <div class="progress mt20 mb10">
+                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:0%">
+                                    </div>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 col-md-4">
+                        <div class="well">
+                            <h4 class="text-center mt0 mb0">Core Android Development</h4>
+                            <hr class="mt10">
+                            <div class="panel panel-default panel-androiddev" data-toggle="modal" data-target="#AndroidDevelopmentFundamentals">
+                              <div class="panel-body">
+                                <h5 class="text-center">Android Development Fundamentals</h5>
+                                <div class="progress mt20 mb10">
+                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:10%">
+                                    </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="panel panel-default androiddev-notstarted" data-toggle="modal" data-target="#AndroidUIDesign">
+                              <div class="panel-body">
+                                <h5 class="text-center">Android UI Design</h5>
+                                <div class="progress mt20 mb10">
+                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:0%">
+                                    </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="panel panel-default androiddev-notstarted" data-toggle="modal" data-target="#AdvancedAndroidDevelopment">
+                              <div class="panel-body">
+                                <h5 class="text-center">Advanced Android Development</h5>
+                                <div class="progress mt20 mb10">
+                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:0%">
+                                    </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="panel panel-default androiddev-notstarted" data-toggle="modal" data-target="#AndroidHighPerformance">
+                              <div class="panel-body">
+                                <h5 class="text-center">Android High Performance</h5>
+                                <div class="progress mt20 mb10">
+                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:0%">
+                                    </div>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 col-md-4">
+                        <div class="well">
+                            <h4 class="text-center mt0 mb0">Android Developer Tools</h4>
+                            <hr class="mt10">
+                            <div class="panel panel-default panel-androidtools" data-toggle="modal" data-target="#AndroidStudioCrashCourse">
+                              <div class="panel-body">
+                                <h5 class="text-center">Android Studio Crash Course</h5>
+                                <div class="progress mt20 mb10">
+                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                                    </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="panel panel-default panel-androidtools" data-toggle="modal" data-target="#GitUptoSpeed">
+                              <div class="panel-body">
+                                <h5 class="text-center">Git Up to Speed</h5>
+                                <div class="progress mt20 mb10">
+                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                                    </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="panel panel-default androidtools-notstarted" data-toggle="modal" data-target="#AdministeringJira">
+                              <div class="panel-body">
+                                <h5 class="text-center">Administering Jira</h5>
+                                <div class="progress mt20 mb10">
+                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:0%">
+                                    </div>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Android Development Fundamentals -->
+                    <div class="modal fade" id="AndroidDevelopmentFundamentals" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Android Development Fundamentals</h4>
+                          </div>
+                          <div class="modal-body">
+                                      <div class="progress">
+                                        <div class="progress-bar ux progress-bar-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:10%">
+                                        </div>
+                                      </div>
+                                      <p>As Android applications grow in complexity, it is important to make sure that they are built on solid foundations. In this Skill Up course, we quickly go over the basics to get you up to speed with Android, Android Studio and Java.
+                                      </p>
+                                      <h4 class="mt25">What you will learn</h4>
+                                      <p>In this Skill Card we'll learn how to:
+                                      <ul>
+                                      <div class="checkbox">
+                                        <label>
+                                            <input id="input1" type="checkbox" name="completed1" value="10" checked>Install Android Studio and Java
+                                        </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                            <input id="input1" type="checkbox" name="completed1" value="10" value="">Write your first Android applications
+                                        </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                            <input id="input1" type="checkbox" name="completed1" value="10" value="">Design beautiful applications with the visual designer
+                                        </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                            <input id="input1" type="checkbox" name="completed1" value="10" value="">Manage the application Lifecycle
+                                        </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                            <input id="input1" type="checkbox" name="completed1" value="10" value="">Write Object Oriented Java code
+                                        </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                            <input id="input1" type="checkbox" name="completed1" value="10" value="">Handle data in your applications
+                                        </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                            <input id="input1" type="checkbox" name="completed1" value="10" value="">Add sound
+                                        </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                            <input id="input1" type="checkbox" name="completed1" value="10" value="">Use fragments for reusable layouts of different sizes
+                                        </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                            <input id="input1" type="checkbox" name="completed1" value="10" value="">Access APIs such as the camera or the Geolocation API
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                            <input id="input1" type="checkbox" name="completed1" value="10" value="">Publish your application to the Google Play Store
+                                        </label>
+                                      </div>
+                                      </ul>
+                                      <div class="alert alert-success mt25" role="alert"><span class="glyphicon glyphicon-thumbs-up mr5" aria-hidden="true"></span> 80% of people with these skills earn over $40,000 a year</div>   
+                                      <h4 class="mt25 mb15">Courses</h4>
+                                      <div class="col-sm-4">
+                                        <img src="https://d1ldz4te4covpm.cloudfront.net/sites/default/files/imagecache/ppv4_main_book_cover/3262OS.jpg" class="img-responsive"/>
+                                      </div>
+                                      <div class="col-sm-4">
+                                        
+                                      </div>
+                                      <div class="col-sm-4">
+                                    
+                                      </div>
+                                      <div class="clearfix">
+                                      </div>
+                          </div>
+                          <div class="modal-footer">
+                                <a href="https://www.google.com/about/careers" class="btn btn-primary btn-lg btn-block">Continue Learning</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Android UI Design -->
+                    <div class="modal fade" id="AndroidUIDesign" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Android UI Design</h4>
+                          </div>
+                          <div class="modal-body">
+                                      <div class="progress">
+                                        <div class="progress-bar ux progress-bar-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%">
+                                        </div>
+                                      </div>
+                                      <p>Making great and engaging applications starts with the design: if it doesn’t feel great to use, your customers won’t use your application. With the increasing number of devices and screen sizes accessing your application, delivering that great user experience consistently has become its own challenge over the past few years. 
+                                    </p><p>
+                                    “Android UI Design” will help you put Google’s design aesthetic, Material Design, to work and help you understand the fundamental building blocks of composable UIs in Android, with Fragments.</p>
+
+                                      <h4 class="mt25">What you will learn</h4>
+                                      <p>In this Skill Card we'll learn how to:
+                                      <ul>
+                                      <div class="checkbox">
+                                        <label>
+                                            <input id="input1" type="checkbox" name="completed1" value="0" value="">Build your first material design inspired applications
+                                        </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                            <input id="input1" type="checkbox" name="completed1" value="0" value="">Apply a material palette to your applications
+                                        </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                            <input id="input1" type="checkbox" name="completed1" value="0" value="">Apply material design to your old applications
+                                        </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                            <input id="input1" type="checkbox" name="completed1" value="0" value="">Animate your material components
+                                        </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                            <input id="input1" type="checkbox" name="completed1" value="0" value="">Utilize material design frameworks to help supercharge your UI designs
+                                        </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                            <input id="input1" type="checkbox" name="completed1" value="0" value="">Build modularized UIs with Fragments
+                                        </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                            <input id="input1" type="checkbox" name="completed1" value="0" value="">Manage the Fragment lifecycle
+                                        </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                            <input id="input1" type="checkbox" name="completed1" value="0" value="">Create rich navigation with Fragments
+                                        </label>
+                                      </div>
+                                      </ul>
+                                         
+                                      <h4 class="mt25 mb15">Courses</h4>
+                                      <div class="col-sm-4">
+                                        <img src="https://d255esdrn735hr.cloudfront.net/sites/default/files/imagecache/ppv4_main_book_cover/9811OS_4272_Learning%20Material%20Design.jpg" class="img-responsive"/>
+                                      </div>
+                                      <div class="col-sm-4">
+                                        <img src="https://d1ldz4te4covpm.cloudfront.net/sites/default/files/imagecache/ppv4_main_book_cover/B05064_MockupCover_Normal_.jpg" class="img-responsive"/>
+                                      </div>
+                                      <div class="col-sm-4">
+                                    
+                                      </div>
+                                      <div class="clearfix">
+                                      </div>
+                          </div>
+                          <div class="modal-footer">
+                                <a href="https://www.google.com/about/careers" class="btn btn-primary btn-lg btn-block">Start Learning</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Advanced Android Development -->
+                    <div class="modal fade" id="AdvancedAndroidDevelopment" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Advanced Android Development</h4>
+                          </div>
+                          <div class="modal-body">
+                                      <div class="progress">
+                                        <div class="progress-bar ux progress-bar-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%">
+                                        </div>
+                                      </div>
+                                      <p>Professional development is about knowing how to make applications that look great, and write code that will scale: Android is no different. You not only need to truly master the basic skills, but you need to know how to use them to create applications that can be used by millions of people simultaneously. This incorporates everything from design to handling data, to integrating the latest Android features that your users are desperate to use.</p>
+
+                                      <h4 class="mt25">What you will learn</h4>
+                                      <p>In this Skill Card we'll learn how to:
+                                      <ul>
+                                      <div class="checkbox">
+                                        <label>
+                                            <input id="input1" type="checkbox" name="completed1" value="0" value="">Write concurrent applications
+                                        </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                            <input id="input1" type="checkbox" name="completed1" value="0" value="">Make use of classic design patterns to create more efficient applications
+                                        </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                            <input id="input1" type="checkbox" name="completed1" value="0" value="">Use push notifications
+                                        </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                            <input id="input1" type="checkbox" name="completed1" value="0" value="">Debug and test your applications
+                                        </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                            <input id="input1" type="checkbox" name="completed1" value="0" value="">Handling permissions in Android Marshmallow
+                                        </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                            <input id="input1" type="checkbox" name="completed1" value="0" value="">Implement Chrome Custom Tabs
+                                        </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                            <input id="input1" type="checkbox" name="completed1" value="0" value="">Understand the Fingerprint authentication API
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                            <input id="input1" type="checkbox" name="completed1" value="0" value="">Develop database-driven Android applications
+                                        </label>
+                                      </div>
+                                      </ul>
+                                         
+                                      <h4 class="mt25 mb15">Courses</h4>
+                                      <div class="col-sm-4">
+                                        <img src="https://d255esdrn735hr.cloudfront.net/sites/default/files/imagecache/ppv4_main_book_cover/4221OS.jpg" class="img-responsive"/>
+                                      </div>
+                                      <div class="col-sm-4">
+                                        <img src="https://d255esdrn735hr.cloudfront.net/sites/default/files/imagecache/ppv4_main_book_cover/4412OS_5059_Android%20Marshmallow%20Essentials_0.jpg" class="img-responsive"/>
+                                      </div>
+                                      <div class="col-sm-4">
+                                            <img src="https://d1ldz4te4covpm.cloudfront.net/sites/default/files/imagecache/ppv4_main_book_cover/B05064_MockupCover_Normal_.jpg" class="img-responsive"/>
+                                      </div>
+                                      <div class="clearfix">
+                                      </div>
+                          </div>
+                          <div class="modal-footer">
+                                <a href="https://www.google.com/about/careers" class="btn btn-primary btn-lg btn-block">Start Learning</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Android High Performance -->
+                    <div class="modal fade" id="AndroidHighPerformance" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Android High Performance</h4>
+                          </div>
+                          <div class="modal-body">
+                                      <div class="progress">
+                                        <div class="progress-bar ux progress-bar-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%">
+                                        </div>
+                                      </div>
+                                      <p>Less than 1% of Android devices are running the latest version of Android. In fact, the majority of the devices in circulation are currently using Jellybean or below; the majority of your audience is using hardware that is several years old.
+
+                                        </p>
+                                        <p>
+                                            “Android High Performance” shows you how to get around this issue by writing applications that make the most of the hardware you have available, and make sure that your applications take up as little resource as possible. We start off with a crash-course in asynchronous programming, and then introduce the Android NDK so you can start to write resource-heavy parts of your applications in native code
+                                        </p>
+
+                                      <h4 class="mt25">What you will learn</h4>
+                                      <p>In this Skill Card we'll learn how to:
+                                      <ul>
+                                      <div class="checkbox">
+                                        <label>
+                                            <input id="input1" type="checkbox" name="completed1" value="0" value="">Understand the Android thread model and concurrent programming in Android
+                                        </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                            <input id="input1" type="checkbox" name="completed1" value="0" value="">Leverage the full power of multi-core mobile CPUs
+                                        </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                            <input id="input1" type="checkbox" name="completed1" value="0" value="">Apply concurrency constructs to build responsive applications
+                                        </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                            <input id="input1" type="checkbox" name="completed1" value="0" value="">Create high performance applications with C/C++
+                                        </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                            <input id="input1" type="checkbox" name="completed1" value="0" value="">Use OpenGL ES to create high performance graphics
+                                        </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                            <input id="input1" type="checkbox" name="completed1" value="0" value="">Successfully integrate with your Java code through Java Native Interfaces
+                                        </label>
+                                      </div>
+                                      </ul>
+                                         
+                                      <h4 class="mt25 mb15">Courses</h4>
+                                      <div class="col-sm-4">
+                                        <img src="https://dz13w8afd47il.cloudfront.net/sites/default/files/imagecache/ppv4_main_book_cover/6874OS_Asynchronous%20Android_cov.jpg" class="img-responsive"/>
+                                      </div>
+                                      <div class="col-sm-4">
+                                        <img src="https://dz13w8afd47il.cloudfront.net/sites/default/files/imagecache/ppv4_main_book_cover/9645OS.jpg" class="img-responsive"/>
+                                      </div>
+                                      <div class="clearfix">
+                                      </div>
+                          </div>
+                          <div class="modal-footer">
+                                <a href="https://www.google.com/about/careers" class="btn btn-primary btn-lg btn-block">Start Learning</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Reactive Java Programming -->
+                    <div class="modal fade" id="ReactiveJavaProgramming" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Reactive Java Programming</h4>
+                          </div>
+                          <div class="modal-body">
+                                      <div class="progress">
+                                        <div class="progress-bar ux progress-bar-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                                        </div>
+                                      </div>
+                                      <p>Reactive programming is a paradigm that allows you to write fast, concurrent and powerful applications. The introduction of Lambdas in Java 8 has made this a viable option for Java developers. Understanding the paradigm and how it fits in with your next Java application is important if you’re looking to build applications that make the most of the hardware they have available to them.
+                                        </p>
+
+                                      <h4 class="mt25">What you will learn</h4>
+                                      <p>In this Skill Card we'll learn how to:
+                                      <ul>
+                                      <div class="checkbox">
+                                        <label>
+                                            <input id="input1" type="checkbox" name="completed1" value="0" checked>Effectively implement reactive programming techniques in to your next Java applications
+                                        </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                            <input id="input1" type="checkbox" name="completed1" value="0" checked>Build fast, efficient and concurrent programs with the RxJava library
+                                        </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                            <input id="input1" type="checkbox" name="completed1" value="0" checked>Unit test asynchronous logic
+                                        </label>
+                                      </div>
+                                      </ul>
+                                         
+                                      <h4 class="mt25 mb15">Courses</h4>
+                                      <div class="col-sm-4">
+                                        <img src="https://d1ldz4te4covpm.cloudfront.net/sites/default/files/imagecache/ppv4_main_book_cover/B04305_MockupCover_Normal_0.jpg" class="img-responsive"/>
+                                      </div>
+                                      <div class="col-sm-4">
+                                        <!-- <img src="https://dz13w8afd47il.cloudfront.net/sites/default/files/imagecache/ppv4_main_book_cover/9645OS.jpg" class="img-responsive"/> -->
+                                      </div>
+                                      <div class="clearfix">
+                                      </div>
+                          </div>
+                          <div class="modal-footer">
+                                <a href="https://www.google.com/about/careers" class="btn btn-primary btn-lg btn-block">Start Learning</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- RESTful Java Programming -->
+                    <div class="modal fade" id="RESTfulJavaProgramming" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">RESTful Java Programming</h4>
+                          </div>
+                          <div class="modal-body">
+                                      <div class="progress">
+                                        <div class="progress-bar ux progress-bar-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%">
+                                        </div>
+                                      </div>
+                                      <p>Unless you’re building an application that tends to ignore the internet, the chances are at some point you’re going to need to know about RESTful Web Service. “RESTful Java Programming” will show you how to make sure that your applications are internet aware, and ready to communicate with other web services
+                                        </p>
+
+                                      <h4 class="mt25">What you will learn</h4>
+                                      <p>In this Skill Card we'll learn how to:
+                                      <ul>
+                                      <div class="checkbox">
+                                        <label>
+                                            <input id="input1" type="checkbox" name="completed1" value="0" >Understand RESTful architecture
+                                        </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                            <input id="input1" type="checkbox" name="completed1" value="0" >Build efficient and secure RESTful Web APIs
+                                        </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                            <input id="input1" type="checkbox" name="completed1" value="0" >Use best practices when designing high-performance RESTful APIs
+                                        </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                            <input id="input1" type="checkbox" name="completed1" value="0" >Incorporate OAuth in to your API designs
+                                        </label>
+                                      </div>
+                                      </ul>
+                                         
+                                      <h4 class="mt25 mb15">Courses</h4>
+                                      <div class="col-sm-4">
+                                        <img src="https://d255esdrn735hr.cloudfront.net/sites/default/files/imagecache/ppv4_main_book_cover/7963OS_cov_0.jpg" class="img-responsive"/>
+                                      </div>
+                                      <div class="col-sm-4">
+                                        <img src="https://d255esdrn735hr.cloudfront.net/sites/default/files/imagecache/ppv4_main_book_cover/bookimages/6460_MockupCover.jpg" class="img-responsive"/>
+                                      </div>
+                                      <div class="clearfix">
+                                      </div>
+                          </div>
+                          <div class="modal-footer">
+                                <a href="https://www.google.com/about/careers" class="btn btn-primary btn-lg btn-block">Start Learning</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Android Studio Crash Course -->
+                    <div class="modal fade" id="AndroidStudioCrashCourse" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Android Studio Crash Course</h4>
+                          </div>
+                          <div class="modal-body">
+                                      <div class="progress">
+                                        <div class="progress-bar ux progress-bar-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                                        </div>
+                                      </div>
+                                      <p>Since its release in 2013, Android Studio has become the de facto IDE for Android development. Whilst its features do simply the building of applications in the long term, it brings with it its own learning requirements and can be pretty overwhelming to newcomers. This Skill Up Card will provide you with recipes to start putting Android Studio to work right away.
+                                        </p>
+
+                                      <h4 class="mt25">What you will learn</h4>
+                                      <p>In this Skill Card we'll learn how to:
+                                      <ul>
+                                      <div class="checkbox">
+                                        <label>
+                                            <input id="input1" type="checkbox" name="completed1" value="0" checked>Use Gradle build scripts
+                                        </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                            <input id="input1" type="checkbox" name="completed1" value="0" checked>Consume data from the cloud
+                                        </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                            <input id="input1" type="checkbox" name="completed1" value="0" checked>Start using Android Studio to build Android Wear applications
+                                        </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                            <input id="input1" type="checkbox" name="completed1" value="0" checked>Beta test in the Google Play Store environment
+                                        </label>
+                                      </div>
+                                      </ul>
+                                         
+                                      <h4 class="mt25 mb15">Courses</h4>
+                                      <div class="col-sm-4">
+                                        <img src="https://dz13w8afd47il.cloudfront.net/sites/default/files/imagecache/ppv4_main_book_cover/6186OS_Android%20Studio%20Cookbook_0.jpg" class="img-responsive"/>
+                                      </div>
+                                      <div class="col-sm-4">
+                                        <!-- <img src="https://d255esdrn735hr.cloudfront.net/sites/default/files/imagecache/ppv4_main_book_cover/bookimages/6460_MockupCover.jpg" class="img-responsive"/> -->
+                                      </div>
+                                      <div class="clearfix">
+                                      </div>
+                          </div>
+                          <div class="modal-footer">
+                                <a href="https://www.google.com/about/careers" class="btn btn-primary btn-lg btn-block">Start Learning</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Git Up to Speed -->
+                    <div class="modal fade" id="GitUptoSpeed" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Git Up to Speed</h4>
+                          </div>
+                          <div class="modal-body">
+                                      <div class="progress">
+                                        <div class="progress-bar ux progress-bar-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                                        </div>
+                                      </div>
+                                      <p>Git is a magic tool you can use that can reverse time, resurrect old versions of code, and allow all developers to work simultaneously on one code base. It’s one of the most important developer tools available today, and is used in all areas of software development – from web development to data science.
+                                        </p>
+
+                                      <h4 class="mt25">What you will learn</h4>
+                                      <p>In this Skill Card we'll learn how to:
+                                      <ul>
+                                      <div class="checkbox">
+                                        <label>
+                                            <input id="input1" type="checkbox" name="completed1" value="0" checked>Set up and get started with Git
+                                        </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                            <input id="input1" type="checkbox" name="completed1" value="0" checked>Understand the Git workflow
+                                        </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                            <input id="input1" type="checkbox" name="completed1" value="0" checked>Manage your version histories
+                                        </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                            <input id="input1" type="checkbox" name="completed1" value="0" checked>Using Git clients
+                                        </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                            <input id="input1" type="checkbox" name="completed1" value="0" checked>Recover lost commits
+                                        </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                            <input id="input1" type="checkbox" name="completed1" value="0" checked>Work offline with Git
+                                        </label>
+                                      </div>
+                                      </ul>
+                                         
+                                      <h4 class="mt25 mb15">Courses</h4>
+                                      <div class="col-sm-4">
+                                        <img src="https://dz13w8afd47il.cloudfront.net/sites/default/files/imagecache/ppv4_main_book_cover/bookretailers/9781783554133.jpg" class="img-responsive"/>
+                                      </div>
+                                      <div class="col-sm-4">
+                                        <img src="https://d1ldz4te4covpm.cloudfront.net/sites/default/files/imagecache/ppv4_main_book_cover/8454OS_cov.jpg" class="img-responsive"/>
+                                      </div>
+                                      <div class="clearfix">
+                                      </div>
+                          </div>
+                          <div class="modal-footer">
+                                <a href="https://www.google.com/about/careers" class="btn btn-primary btn-lg btn-block">Start Learning</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Administering Jira -->
+                    <div class="modal fade" id="AdministeringJira" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Administering Jira</h4>
+                          </div>
+                          <div class="modal-body">
+                                      <div class="progress">
+                                        <div class="progress-bar ux progress-bar-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%">
+                                        </div>
+                                      </div>
+                                      <p>An important part of any software development cycle is project management: mainly, bug tracking and issue tracking. Without this, your projects are prone to go to production with bugs that you’ve either forgotten exist, or got noticed during testing and never fixed. Jira is a tool that helps you manage these features across a large team, and make sure that every issue is tracked and fixed before deployment.
+                                        </p>
+
+                                      <h4 class="mt25">What you will learn</h4>
+                                      <p>In this Skill Card we'll learn how to:
+                                      <ul>
+                                      <div class="checkbox">
+                                        <label>
+                                            <input id="input1" type="checkbox" name="completed1" value="0" >Set up and install Jira
+                                        </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                            <input id="input1" type="checkbox" name="completed1" value="0" >Create and manage issue types
+                                        </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                            <input id="input1" type="checkbox" name="completed1" value="0" >Manage the permissions of your Jira instance
+                                        </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                            <input id="input1" type="checkbox" name="completed1" value="0" >Create and manage your own dashboard
+                                        </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                            <input id="input1" type="checkbox" name="completed1" value="0" >Automate administrative tasks with scripts and CLIs
+                                        </label>
+                                      </div>
+                                      </ul>
+                                         
+                                      <h4 class="mt25 mb15">Courses</h4>
+                                      <div class="col-sm-4">
+                                        <img src="https://d1ldz4te4covpm.cloudfront.net/sites/default/files/imagecache/ppv4_main_book_cover/9781849689243.jpg" class="img-responsive"/>
+                                      </div>
+                                      <div class="col-sm-4">
+                                        <img src="https://d255esdrn735hr.cloudfront.net/sites/default/files/imagecache/ppv4_main_book_cover/6862EN.jpg" class="img-responsive"/>
+                                      </div>
+                                      <div class="clearfix">
+                                      </div>
+                          </div>
+                          <div class="modal-footer">
+                                <a href="https://www.google.com/about/careers" class="btn btn-primary btn-lg btn-block">Start Learning</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Job Description -->
+                    <div class="modal fade" id="jobDesc" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Android Developer @ Google</h4>
+                          </div>
+                          <div class="modal-body">
+                                    <h4>Overall Progress:</h4>
+                                      <div class="progress">
+                                        <div class="progress-bar ux progress-bar-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:7%">
+                                        </div>
+                                      </div>
+                                      <p>Does a creating innovative Android experience while leveraging enterprise APIs excite you? Want to impact the world’s largest mobile marketplace? We have a place for you! eBay's is looking for an Android Engineer who is passionate about creating apps consumers love. This is an amazing opportunity to join a world leader in mobile commerce and directly impact the lives of a global population while increasing the revenue of eBay exponentially.
+                                      </p>
+                                      <h4 class="mt25">Job Requirements:</h4>
+                                      <p>We are a world leader in mobile commerce and directly impact the lives of a global population. Our app, with over 90 million total installs, brings in billions in revenue and is the entry point for a good portion of our customers. Join our tightly knit team of superstars who enjoy working on large-scale challenging and interesting problems. We work in small focused, collaborative project teams following an agile methodology. Cross functional teams including product management, product development, and UXD work on a daily basis to create a successful product that delights our customers.
+You will feel like you’re working in a start-up, whilst at the same time having the resources of a large company. Working at eBay is a rewarding, challenging and inspiring experience.
+
+                                        </p>
+                                    <h4 class="mt25">Desired Experience:</h4>
+                                    <ul>
+                                        <li>5 Years of software design and development experience working on a team</li>
+                                        <li>3+ Years of experience developing commercial software with Java
+                                        <li>2+ Years of experience developing Android Applications
+                                        <li>Experience developing and integrating with web services, TCP/IP and databases
+                                        <li>An expert Java Programmer, capable of writing commercial quality Android applications.
+                                        <li>An expert in the Android operating system.
+                                        <li>Solid working knowledge of mobile application design considerations.
+                                        <li>Work well with team members and other teams, dividing up workload appropriately.
+                                        <li>Experience with Java IDEs (e.g. Eclipse), profilers, debuggers, revision control systems (e.g. GIT) and bug tracking (e.g. Jira)
+                                        </ul>
+
+                          </div>
+                          <div class="modal-footer">
+                                <a href="https://www.google.com/about/careers" class="btn btn-primary btn-lg btn-block">View Job</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    
+
+                    
+
+                </div>
+
+			</div>
+		</div>
+    </div>
+    <div id="footer" class="visible-xs">
+	  <div class="col-xs-12 navbar-inverse navbar-fixed-bottom">
+	  <div class="row" id="bottomNav" role="tablist">
+	    <div class="col-xs-3 text-center"><a href="#dashboard" id="dashboard-tab" role="tab" data-toggle="tab" aria-controls="about" aria-expanded="true"><i class="fa fa-home mobile-nav-icon fa-2x"></i></a></div>
+	    <div class="col-xs-3 text-center"><a href="#learn" role="tab" id="learn-tab" data-toggle="tab" aria-controls="learn"><i class="fa fa-list mobile-nav-icon fa-2x"></i></a></div>
+	    <div class="col-xs-3 text-center"><a href="#detail" role="tab" id="detail-tab" data-toggle="tab" aria-controls="detail"><i class="fa fa-suitcase mobile-nav-icon fa-2x"></i></a></div>
+	    <div class="col-xs-3 text-center"><a href="#author" role="tab" id="author-tab" data-toggle="tab" aria-controls="detail"><i class="fa fa-bookmark mobile-nav-icon fa-2x"></i></a></div>
+	  </div>
+	  </div>
+	</div>
+    <!-- /#wrapper -->
+
+    <!-- JAVASCRIPT BLOCKS -->
+
+    <!-- jQuery Script-->
+    <script src="js/jquery.js"></script>
+    <!-- Syntax Highlighting Script -->
+    <script src="js/prism.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Sidebar Toggle Script -->
+    <script src="js/simple-sidebar.js"></script>
+    <script type="text/javascript">
+      $('input').on('click', function() {
+          var emptyValue = 0;
+          $('input:checked').each(function() {
+              emptyValue += parseInt($(this).val());
+          });
+          $('.progress-bar.ux').css('width', emptyValue + '%').attr('aria-valuenow', emptyValue);
+      });
+    </script>
+
+
+</body>
+
+</html>
