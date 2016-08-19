@@ -8,9 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel='shortcut icon' href='favicon.ico' type='image/x-icon'/ >
 
-    <title>Mapt - Developer Skills Delivered</title>
+    <title>Learning C++ by Creating Games with UE4 - Chapter 3. Looping</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -45,14 +44,17 @@
 
 <body class="language-markup">
 
- 
-  <!-- Modal -->
+  
+
+    <div id="wrapper">
+
+          <!-- Modal -->
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
               <div class="modal-dialog login-modal" role="document">
                 <div class="modal-content">
                   <div class="modal-body">
 
-                        <h4 class="text-center" id="myModalLabel">Sign In</h4>
+                        <h2 class="text-center" id="myModalLabel">Sign In</h2>
                         <form ng-submit="login()" class="form-signin ng-pristine ng-valid">
                             <input name="email" type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
                             <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
@@ -62,7 +64,7 @@
                             <div class="alert alert-danger login-error ng-binding" role="alert" style="display: none;">
                                 Sorry, you entered an invalid email address and password combination. <a href="/account/password" target="_self">Have you forgotten your password?</a>
                             </div>
-                            <a href="dashboard.html" type="submit" class="btn btn-primary btn-block btn-lg">Submit</a>
+                            <input type="submit" class="btn btn-primary btn-block btn-lg" value="Submit">
                         </form>
                         
                   </div>
@@ -78,7 +80,7 @@
                 <div class="modal-content">
                   <div class="modal-body">
 
-                        <h4 class="text-center" id="myModalLabel">Create Account</h4>
+                        <h2 class="text-center" id="myModalLabel">Create Account</h2>
                         <form ng-submit="login()" class="form-signin ng-pristine ng-valid">
                             <input name="name" type="name" class="form-control mb20" id="firstName" placeholder="First Name">
                             <input name="email" type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter Email">
@@ -106,72 +108,50 @@
               </div>
             </div>
 
-    <div id="wrapper">
-
-        <!-- Top Nav Bar -->
-        <nav class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                  </button>
-                  <a class="navbar-brand toggle-nav" href="#menu-toggle" id="menu-toggle"><i class="fa fa-bars fa-lg"></i></a>
-                  <a class="brand-logo" href="dashboard-lo.html"><img src="images/mapt.png"/></a>
-                </div>
-                <div id="navbar" class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="active"><a href="library.html">Library</a></li>
-                        <li><button data-toggle="modal" data-target="#myModal" type="button" class="btn btn-warning navbar-btn mr15 ml15">Sign in</button></li>
-                        
-                    
-                    </ul>
-                    <form class="navbar-form navbar-right search-nav-collapse">
-                        <div class="form-group pull-right" style="display:inline;">
-                              <input class="form-control" type="text" placeholder="Search for a title...">
-                        </div>
-                    </form>
-                </div><!--/.nav-collapse -->
-            </div>
-        </nav>
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
-
-            <ul class="sidebar-nav">
-              <li class="active"><a href="library.html" class="sidenav-menu-holder"><span class="sidenav-menu">Library </span><span class="pull-right mr5"><i class="fa fa-archive fa-lg"></i></span></a>    </li>
+          <ul class="sidebar-nav">
+            <div class="list-group" id="sidebar-nav" role="tablist" aria-multiselectable="true">
+              <li class="nav-logo "><a href="dashboard.html" class="sidenav-menu-holder"><span class="sidenav-menu"><img src="images/mapt-logo.png" class=""></span><span class="pull-left mr5"></span></a>    </li>
+              <form class="col-sm-12 mb15 pl25 pr25">
+                <input type="text" class="form-control" placeholder="&#xf002;  Search for a course...">
+              </form>
+              <div class="clearfix"></div>
+              <li class=""><a href="#"  data-toggle="modal" data-target="#myModal" class="sidenav-menu-holder"><span class="sidenav-menu">Sign In</span><span class="pull-left mr5"></span></a> </li>
+              <li class="active"><a data-toggle="collapse" data-parent="#sidebar-nav" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo" class="sidenav-menu-holder"><span class="sidenav-menu">Courses</span><span class="pull-left mr5"></span></a>    </li>
+              <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
+                <li class="sub-nav active"><a href="library.html" class="sidenav-menu-holder"><span class="sidenav-menu">Library</span><span class="pull-left mr5"></span></a>    </li>
+              </div>
               
-            </ul>
+              <li class=""><a data-toggle="collapse" data-parent="#sidebar-nav" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour" class="sidenav-menu-holder"><span class="sidenav-menu">Help</span><span class="pull-left mr5"></span></a>    </li>
+              <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                <li class="sub-nav"><a href="help.html" class="sidenav-menu-holder"><span class="sidenav-menu">FAQs</span><span class="pull-left mr5"></span></a></li>
+              </div>
+              
+            </div>
+          </ul>
         </div>
 
         <!-- /#sidebar-wrapper -->
 
         <div id="page-content-wrapper" class="">
-            <div class="jumbotron heading">
-                <div class="container-fluid">
-                  <div class="col-sm-12">
-                    <h1 >Library</h1>
-                    <ol class="breadcrumb row mt0">
-                      <li class="active mt5">Browse our vast collection of courses by topic and see what skills are trending around the world.</li>
-                    </ol>
-                  </div>
-                </div>
-            </div>
-            <div id="book-wrapper" onload="finishLoad()" ng-include="" src="views.book" class="container-fluid">               
+            <a href="#menu-toggle" id="menu-toggle"><i class="fa fa-bars fa-2x mr5"></i></a>
+            <div id="book-wrapper" class="container-fluid">               
                 <div class="row">
+                  <div class="col-sm-12 col-lg-offset-1 col-lg-10 mt10">
+                    <div class="page-title">
+                      <h3 >Library</h3>
+                      <h6 class="mt5">Discover the most important skills in software today by exploring the library</h6>
+                    </div>
+                            <hr>
+                  </div>
                   <div class="">
-                      <div class="col-sm-12 col-lg-offset-2 col-lg-8 mt10 mb30">
-                        <div class="input-group input-group-lg mb30">
-                          <span class="input-group-addon" id="basic-addon1"><i class="fa fa-search"></i></span>
-                          <input id="searchinput" type="text" class="form-control quicksearch input-lg" placeholder="Search for a Skill">
-                        </div>
-                      </div>
                       <div class="col-sm-3 col-lg-offset-1 col-lg-3 col-xl-2">
                         <div class="panel panel-default">
                           <!-- Default panel contents -->
                           <div class="panel-heading"><h4 class="panel-title">Browse Topics</h4></div>
                           <ul class="list-group">
+                            <a class="list-group-item active" href="library.html">    All Topics </a>   
                             <a class="list-group-item" href="tech-page.html">    Android </a>    
                             <a class="list-group-item" href="tech-page.html">    AngularJS   </a>    
                             <a class="list-group-item" href="tech-page.html">    Arduino </a>    
@@ -207,131 +187,107 @@
                       <div class="col-sm-9 col-lg-7 col-xl-8">
                           <ul id="recommendationTabs" class="nav nav-pills nav-stacked text-center mt25 mb25 visible-xs" role="tablist">
                               <li class="active">
-                                  <a href="#popular" role="tab" data-toggle="tab" aria-controls="popular" ng-click="$event.preventDefault();" aria-expanded="true">Popular</a>
+                                  <a href="#popular" role="tab" data-toggle="tab" aria-controls="popular" ng-click="$event.preventDefault();" aria-expanded="true">Trending</a>
                               </li>
                               <li>
-                                  <a href="#new" role="tab" data-toggle="tab" aria-controls="new" ng-click="$event.preventDefault();getFiveRecent($event);" aria-expanded="false">New</a>
+                                  <a href="#new" role="tab" data-toggle="tab" aria-controls="new" ng-click="$event.preventDefault();getFiveRecent($event);" aria-expanded="false">Latest Additions</a>
                               </li>
                           </ul>
                           <ul id="recommendationTabs" class="nav nav-tabs nav-justified hidden-xs" role="tablist">
                               <li class="active">
-                                  <a href="#popular" role="tab" data-toggle="tab" aria-controls="popular" ng-click="$event.preventDefault();" aria-expanded="false"><h5>Popular</h5></a>
+                                  <a href="#popular" role="tab" data-toggle="tab" aria-controls="popular" ng-click="$event.preventDefault();" aria-expanded="false"><h5>Trending</h5></a>
                               </li>
                               <li class="">
-                                  <a href="#new" role="tab" data-toggle="tab" aria-controls="new" ng-click="$event.preventDefault();libraryController.getFiveRecent($event);" aria-expanded="false"><h5>New</h5></a>
+                                  <a href="#new" role="tab" data-toggle="tab" aria-controls="new" ng-click="$event.preventDefault();libraryController.getFiveRecent($event);" aria-expanded="false"><h5>Latest additions</h5></a>
                               </li>
-                              <li class="">
-                                  <a href="#recommended" ng-click="$event.preventDefault();" role="tab" data-toggle="tab" aria-controls="recommended" aria-expanded="true" ng-if="libraryController.userRecommendations" class="ng-scope"><h5>Recommended</h5></a>
-                              </li>
+                              
                           </ul>
                           <div class="tab-content mt15">
                               <div role="tabpanel" class="tab-pane fade active in" id="popular" aria-labelledby="popular-tab">
                                   <div class="tabbed-content">
                                       <ul class="list-group">
-                                          <li ng-repeat="(key, fivePopular) in fivePopular" href="front-page-lo.html" class="list-group-item list-name ng-scope">
-                                          <a href="front-page-lo.html"><img src="images/book1.jpg" class="img-product-list hidden-xs"/></a>
+                                          <li ng-repeat="(key, fivePopular) in fivePopular" href="front-page.html" class="list-group-item list-name ng-scope">
+                                          <a href="front-page.html"><img src="images/book1.jpg" class="img-product-list hidden-xs"></a>
                                               <h1>Practical Machine Learning</h1>
                                               <p class="mb5">By Sunila Gollapudi</p>
                                                 <p class="mb5"><small>Modernize existing Python code and plan code migrations to Python using this definitive guide</small></p>
-                                                <!-- Feefo Star Rating -->
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                                                <img src="https://dz13w8afd47il.cloudfront.net/sites/all/themes/packt_v4/images/feefo-logo-simple.png" class="simple-feefo-logo">
-                                                <small> 35 review(s)</small>
-                                                <!-- Feefo Star Rating END -->    
-                                              <br>
+                                              
+                                              
                                               <small ng-if="fivePopular.field_date_of_publication[0].value" class=" mr10 ng-binding ng-scope mt10">Jan 2016</small>
                                               <small class=" title-duration ng-binding mt10"><i class="fa fa-clock-o mr5"></i>14 hours 02 minutes</small>
                                               <br>
-                                              <a href="front-page-lo.html" class="btn btn-info pull-right btn-lg">View Title <i class="fa fa-chevron-right ml5" aria-hidden="true"></i></a>
+                                              <div class="mt20 btn-group pull-right">
+                                                <a href="#" class="btn btn-default"><i class="fa fa-download fa-lg mr5"></i>Buy eBook for $21.99</span></a>
+                                                <a href="front-page.html" class="btn btn-info ">View Course <i class="fa fa-chevron-right ml5" aria-hidden="true"></i></a>
+                                              </div>
                                               <div class="clearfix">
                                               </div>
                                           </li>
-                                          <li ng-repeat="(key, fivePopular) in fivePopular" href="front-page-lo.html" class="list-group-item list-name ng-scope">
-                                              <a href="front-page-lo.html"><img src="images/book2.jpg" class="img-product-list hidden-xs"/></a>
+                                          <li ng-repeat="(key, fivePopular) in fivePopular" href="front-page.html" class="list-group-item list-name ng-scope">
+                                              <a href="front-page.html"><img src="images/book2.jpg" class="img-product-list hidden-xs"></a>
                                               <h1>Learning Drupal 8</h1>
                                               <p class="mb5">By Nick Abbott</p>
                                               <p class="mb5"><small>Modernize existing Python code and plan code migrations to Python using this definitive guide</small></p>
-                                              <!-- Feefo Star Rating -->
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                                                <img src="https://dz13w8afd47il.cloudfront.net/sites/all/themes/packt_v4/images/feefo-logo-simple.png" class="simple-feefo-logo">
-                                                <small> 12 review(s)</small>
-                                                <!-- Feefo Star Rating END -->   
-                                              <br>
+                                               
+                                              
                                               <small ng-if="fivePopular.field_date_of_publication[0].value" class="mr10 ng-binding ng-scope mt10">Jan 2016</small>
                                               <small class="title-duration ng-binding mt10"><i class="fa fa-clock-o mr5"></i>9 hours 50 minutes</small>
                                               <br>
-                                              <a href="front-page-lo.html" class="btn btn-info pull-right btn-lg">View Title <i class="fa fa-chevron-right ml5" aria-hidden="true"></i></a>
+                                              
+                                              <div class="mt20 btn-group pull-right">
+                                                <a href="#" class="btn btn-default"><i class="fa fa-download fa-lg mr5"></i>Buy eBook for $21.99</span></a>
+                                                <a href="front-page.html" class="btn btn-info ">View Course <i class="fa fa-chevron-right ml5" aria-hidden="true"></i></a>
+                                              </div>
                                               <div class="clearfix">
                                               </div>
                                           </li><li ng-repeat="(key, fivePopular) in fivePopular" href="/packtlib/book/Web-Development/9781785281341" class="list-group-item list-name ng-scope">
-                                              <a href="front-page-lo.html"><img src="images/book3.jpg" class="img-product-list hidden-xs"/></a>
+                                              <a href="front-page.html"><img src="images/book3.jpg" class="img-product-list hidden-xs"></a>
                                               <h1>Mastering JavaScript</h1>
                                               <p class="mb5">By Ved Antani</p>
                                               <p class="mb5"><small>Modernize existing Python code and plan code migrations to Python using this definitive guide</small></p>
-                                              <!-- Feefo Star Rating -->
-                                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                                                <img src="https://dz13w8afd47il.cloudfront.net/sites/all/themes/packt_v4/images/feefo-logo-simple.png" class="simple-feefo-logo">
-                                                <small> 0 review(s)</small>
-                                                <!-- Feefo Star Rating END -->  
-                                              <br>
+                                              
+                                              
                                               <small ng-if="fivePopular.field_date_of_publication[0].value" class="mr10 ng-binding ng-scope mt10">Jan 2016</small>
                                               <small class=" title-duration ng-binding mt10"><i class="fa fa-clock-o mr5"></i>7 hours 30 minutes</small>
                                               <br>
-                                              <a href="front-page-lo.html" class="btn btn-info pull-right btn-lg">View Title <i class="fa fa-chevron-right ml5" aria-hidden="true"></i></a>
+                                              
+                                              <div class="mt20 btn-group pull-right">
+                                                <a href="#" class="btn btn-default"><i class="fa fa-download fa-lg mr5"></i>Buy eBook for $21.99</span></a>
+                                                <a href="front-page.html" class="btn btn-info ">View Course <i class="fa fa-chevron-right ml5" aria-hidden="true"></i></a>
+                                              </div>
                                               <div class="clearfix">
                                               </div>
-                                          </li><li ng-repeat="(key, fivePopular) in fivePopular" href="front-page-lo.html" class="list-group-item list-name ng-scope">
-                                              <a href="front-page-lo.html"><img src="images/book4.jpg" class="img-product-list hidden-xs"/></a>
+                                          </li><li ng-repeat="(key, fivePopular) in fivePopular" href="front-page.html" class="list-group-item list-name ng-scope">
+                                              <a href="front-page.html"><img src="images/book4.jpg" class="img-product-list hidden-xs"></a>
                                               <h1>Learning Predictive Analytics with Python</h1>
                                               <p class="mb5">By Ashish Kumar</p>
                                               <p class="mb5"><small>Modernize existing Python code and plan code migrations to Python using this definitive guide</small></p>
-                                              <!-- Feefo Star Rating -->
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                                                <img src="https://dz13w8afd47il.cloudfront.net/sites/all/themes/packt_v4/images/feefo-logo-simple.png" class="simple-feefo-logo">
-                                                <small> 1 review(s)</small>   
-                                                <!-- Feefo Star Rating END -->   
-                                              <br>
+                                              
+                                              
                                               <small ng-if="fivePopular.field_date_of_publication[0].value" class="mr10 ng-binding ng-scope mt10">Feb 2016</small>
                                               <small class=" title-duration ng-binding mt10"><i class="fa fa-clock-o mr5"></i>10 hours 37 minutes</small>
                                               <br>
-                                              <a href="front-page-lo.html" class="btn btn-info pull-right btn-lg">View Title <i class="fa fa-chevron-right ml5" aria-hidden="true"></i></a>
+                                              
+                                              <div class="mt20 btn-group pull-right">
+                                                <a href="#" class="btn btn-default"><i class="fa fa-download fa-lg mr5"></i>Buy eBook for $21.99</span></a>
+                                                <a href="front-page.html" class="btn btn-info ">View Course <i class="fa fa-chevron-right ml5" aria-hidden="true"></i></a>
+                                              </div>
                                               <div class="clearfix">
                                               </div>
-                                          </li><li ng-repeat="(key, fivePopular) in fivePopular" href="front-page-lo.html" class="list-group-item list-name ng-scope">
-                                              <a href="front-page-lo.html"><img src="images/book5.jpg" class="img-product-list hidden-xs"/></a>
+                                          </li><li ng-repeat="(key, fivePopular) in fivePopular" href="front-page.html" class="list-group-item list-name ng-scope">
+                                              <a href="front-page.html"><img src="images/book5.jpg" class="img-product-list hidden-xs"></a>
                                               <h1>Mastering Django Web Development [Video]</h1>
                                               <p class="mb5">By Kevin Veroneau </p>
                                               <p class="mb5"><small>Modernize existing Python code and plan code migrations to Python using this definitive guide</small></p>
-                                              <!-- Feefo Star Rating -->
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                                                <img src="https://dz13w8afd47il.cloudfront.net/sites/all/themes/packt_v4/images/feefo-logo-simple.png" class="simple-feefo-logo">   
-                                                <small> 56 review(s)</small>
-                                                <!-- Feefo Star Rating END -->  
-                                              <br>
+                                              
+                                              
                                               <small ng-if="fivePopular.field_date_of_publication[0].value" class=" mr10 ng-binding ng-scope mt10">Jan 2016</small>
                                               <small class=" title-duration ng-binding mt10"><i class="fa fa-clock-o mr5"></i>1 hour</small>
-                                              <br>
-                                              <a href="front-page-lo.html" class="btn btn-info pull-right btn-lg">View Title <i class="fa fa-chevron-right ml5" aria-hidden="true"></i></a>
+                                              
+                                              <div class="mt20 btn-group pull-right">
+                                                <a href="#" class="btn btn-default"><i class="fa fa-download fa-lg mr5"></i>Buy eBook for $21.99</span></a>
+                                                <a href="front-page.html" class="btn btn-info ">View Course <i class="fa fa-chevron-right ml5" aria-hidden="true"></i></a>
+                                              </div>
                                               <div class="clearfix">
                                               </div>
                                           </li>
@@ -342,111 +298,88 @@
                               <div role="tabpanel" class="tab-pane fade" id="new" aria-labelledby="new-tab">
                                   <div class="tabbed-content">
                                       <ul class="list-group">
-                                          <li ng-repeat="(key, fivePopular) in fivePopular" href="/packtlib/book/Web-Development/9781785281341" class="list-group-item list-name ng-scope">
-                                              <a href="front-page-lo.html"><img src="images/book3.jpg" class="img-product-list hidden-xs"/></a>
-                                              <h1>Mastering JavaScript</h1>
-                                              <p class="mb5">By Ved Antani</p>
-                                              <p class="mb5"><small>Modernize existing Python code and plan code migrations to Python using this definitive guide</small></p>
-                                              <!-- Feefo Star Rating -->
-                                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                                                <img src="https://dz13w8afd47il.cloudfront.net/sites/all/themes/packt_v4/images/feefo-logo-simple.png" class="simple-feefo-logo">
-                                                <small> 0 review(s)</small>
-                                                <!-- Feefo Star Rating END -->  
-                                              <br>
-                                              <small ng-if="fivePopular.field_date_of_publication[0].value" class="mr10 ng-binding ng-scope mt10">Jan 2016</small>
-                                              <small class=" title-duration ng-binding mt10"><i class="fa fa-clock-o mr5"></i>7 hours 30 minutes</small>
-                                              <br>
-                                              <a href="front-page-lo.html" class="btn btn-info pull-right btn-lg">View Title <i class="fa fa-chevron-right ml5" aria-hidden="true"></i></a>
-                                              <div class="clearfix">
-                                              </div>
-                                          </li><li ng-repeat="(key, fivePopular) in fivePopular" href="front-page-lo.html" class="list-group-item list-name ng-scope">
-                                              <a href="front-page-lo.html"><img src="images/book4.jpg" class="img-product-list hidden-xs"/></a>
-                                              <h1>Learning Predictive Analytics with Python</h1>
-                                              <p class="mb5">By Ashish Kumar</p>
-                                              <p class="mb5"><small>Modernize existing Python code and plan code migrations to Python using this definitive guide</small></p>
-                                              <!-- Feefo Star Rating -->
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                                                <img src="https://dz13w8afd47il.cloudfront.net/sites/all/themes/packt_v4/images/feefo-logo-simple.png" class="simple-feefo-logo">
-                                                <small> 1 review(s)</small>   
-                                                <!-- Feefo Star Rating END -->   
-                                              <br>
-                                              <small ng-if="fivePopular.field_date_of_publication[0].value" class="mr10 ng-binding ng-scope mt10">Feb 2016</small>
-                                              <small class=" title-duration ng-binding mt10"><i class="fa fa-clock-o mr5"></i>10 hours 37 minutes</small>
-                                              <br>
-                                              <a href="front-page-lo.html" class="btn btn-info pull-right btn-lg">View Title <i class="fa fa-chevron-right ml5" aria-hidden="true"></i></a>
-                                              <div class="clearfix">
-                                              </div>
-                                          </li><li ng-repeat="(key, fivePopular) in fivePopular" href="front-page-lo.html" class="list-group-item list-name ng-scope">
-                                              <a href="front-page-lo.html"><img src="images/book5.jpg" class="img-product-list hidden-xs"/></a>
-                                              <h1>Mastering Django Web Development [Video]</h1>
-                                              <p class="mb5">By Kevin Veroneau </p>
-                                              <p class="mb5"><small>Modernize existing Python code and plan code migrations to Python using this definitive guide</small></p>
-                                              <!-- Feefo Star Rating -->
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                                                <img src="https://dz13w8afd47il.cloudfront.net/sites/all/themes/packt_v4/images/feefo-logo-simple.png" class="simple-feefo-logo">   
-                                                <small> 56 review(s)</small>
-                                                <!-- Feefo Star Rating END -->  
-                                              <br>
-                                              <small ng-if="fivePopular.field_date_of_publication[0].value" class=" mr10 ng-binding ng-scope mt10">Jan 2016</small>
-                                              <small class=" title-duration ng-binding mt10"><i class="fa fa-clock-o mr5"></i>1 hour</small>
-                                              <br>
-                                              <a href="front-page-lo.html" class="btn btn-info pull-right btn-lg">View Title <i class="fa fa-chevron-right ml5" aria-hidden="true"></i></a>
-                                              <div class="clearfix">
-                                              </div>
-                                          </li>
-                                          <li ng-repeat="(key, fivePopular) in fivePopular" href="front-page-lo.html" class="list-group-item list-name ng-scope">
-                                          <a href="front-page-lo.html"><img src="images/book1.jpg" class="img-product-list hidden-xs"/></a>
+                                          <li ng-repeat="(key, fivePopular) in fivePopular" href="front-page.html" class="list-group-item list-name ng-scope">
+                                          <a href="front-page.html"><img src="images/book1.jpg" class="img-product-list hidden-xs"></a>
                                               <h1>Practical Machine Learning</h1>
                                               <p class="mb5">By Sunila Gollapudi</p>
                                                 <p class="mb5"><small>Modernize existing Python code and plan code migrations to Python using this definitive guide</small></p>
-                                                <!-- Feefo Star Rating -->
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                                                <img src="https://dz13w8afd47il.cloudfront.net/sites/all/themes/packt_v4/images/feefo-logo-simple.png" class="simple-feefo-logo">
-                                                <small> 35 review(s)</small>
-                                                <!-- Feefo Star Rating END -->    
-                                              <br>
+                                              
+                                              
                                               <small ng-if="fivePopular.field_date_of_publication[0].value" class=" mr10 ng-binding ng-scope mt10">Jan 2016</small>
                                               <small class=" title-duration ng-binding mt10"><i class="fa fa-clock-o mr5"></i>14 hours 02 minutes</small>
                                               <br>
-                                              <a href="front-page-lo.html" class="btn btn-info pull-right btn-lg">View Title <i class="fa fa-chevron-right ml5" aria-hidden="true"></i></a>
+                                              <div class="mt20 btn-group pull-right">
+                                                <a href="#" class="btn btn-default"><i class="fa fa-download fa-lg mr5"></i>Buy eBook for $21.99</span></a>
+                                                <a href="front-page.html" class="btn btn-info ">View Course <i class="fa fa-chevron-right ml5" aria-hidden="true"></i></a>
+                                              </div>
                                               <div class="clearfix">
                                               </div>
                                           </li>
-                                          <li ng-repeat="(key, fivePopular) in fivePopular" href="front-page-lo.html" class="list-group-item list-name ng-scope">
-                                              <a href="front-page-lo.html"><img src="images/book2.jpg" class="img-product-list hidden-xs"/></a>
+                                          <li ng-repeat="(key, fivePopular) in fivePopular" href="front-page.html" class="list-group-item list-name ng-scope">
+                                              <a href="front-page.html"><img src="images/book2.jpg" class="img-product-list hidden-xs"></a>
                                               <h1>Learning Drupal 8</h1>
                                               <p class="mb5">By Nick Abbott</p>
                                               <p class="mb5"><small>Modernize existing Python code and plan code migrations to Python using this definitive guide</small></p>
-                                              <!-- Feefo Star Rating -->
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                                                <img src="https://dz13w8afd47il.cloudfront.net/sites/all/themes/packt_v4/images/feefo-logo-simple.png" class="simple-feefo-logo">
-                                                <small> 12 review(s)</small>
-                                                <!-- Feefo Star Rating END -->   
-                                              <br>
+                                               
+                                              
                                               <small ng-if="fivePopular.field_date_of_publication[0].value" class="mr10 ng-binding ng-scope mt10">Jan 2016</small>
                                               <small class="title-duration ng-binding mt10"><i class="fa fa-clock-o mr5"></i>9 hours 50 minutes</small>
                                               <br>
-                                              <a href="front-page-lo.html" class="btn btn-info pull-right btn-lg">View Title <i class="fa fa-chevron-right ml5" aria-hidden="true"></i></a>
+                                              
+                                              <div class="mt20 btn-group pull-right">
+                                                <a href="#" class="btn btn-default"><i class="fa fa-download fa-lg mr5"></i>Buy eBook for $21.99</span></a>
+                                                <a href="front-page.html" class="btn btn-info ">View Course <i class="fa fa-chevron-right ml5" aria-hidden="true"></i></a>
+                                              </div>
+                                              <div class="clearfix">
+                                              </div>
+                                          </li><li ng-repeat="(key, fivePopular) in fivePopular" href="/packtlib/book/Web-Development/9781785281341" class="list-group-item list-name ng-scope">
+                                              <a href="front-page.html"><img src="images/book3.jpg" class="img-product-list hidden-xs"></a>
+                                              <h1>Mastering JavaScript</h1>
+                                              <p class="mb5">By Ved Antani</p>
+                                              <p class="mb5"><small>Modernize existing Python code and plan code migrations to Python using this definitive guide</small></p>
+                                              
+                                              
+                                              <small ng-if="fivePopular.field_date_of_publication[0].value" class="mr10 ng-binding ng-scope mt10">Jan 2016</small>
+                                              <small class=" title-duration ng-binding mt10"><i class="fa fa-clock-o mr5"></i>7 hours 30 minutes</small>
+                                              <br>
+                                              
+                                              <div class="mt20 btn-group pull-right">
+                                                <a href="#" class="btn btn-default"><i class="fa fa-download fa-lg mr5"></i>Buy eBook for $21.99</span></a>
+                                                <a href="front-page.html" class="btn btn-info ">View Course <i class="fa fa-chevron-right ml5" aria-hidden="true"></i></a>
+                                              </div>
+                                              <div class="clearfix">
+                                              </div>
+                                          </li><li ng-repeat="(key, fivePopular) in fivePopular" href="front-page.html" class="list-group-item list-name ng-scope">
+                                              <a href="front-page.html"><img src="images/book4.jpg" class="img-product-list hidden-xs"></a>
+                                              <h1>Learning Predictive Analytics with Python</h1>
+                                              <p class="mb5">By Ashish Kumar</p>
+                                              <p class="mb5"><small>Modernize existing Python code and plan code migrations to Python using this definitive guide</small></p>
+                                              
+                                              
+                                              <small ng-if="fivePopular.field_date_of_publication[0].value" class="mr10 ng-binding ng-scope mt10">Feb 2016</small>
+                                              <small class=" title-duration ng-binding mt10"><i class="fa fa-clock-o mr5"></i>10 hours 37 minutes</small>
+                                              <br>
+                                              
+                                              <div class="mt20 btn-group pull-right">
+                                                <a href="#" class="btn btn-default"><i class="fa fa-download fa-lg mr5"></i>Buy eBook for $21.99</span></a>
+                                                <a href="front-page.html" class="btn btn-info ">View Course <i class="fa fa-chevron-right ml5" aria-hidden="true"></i></a>
+                                              </div>
+                                              <div class="clearfix">
+                                              </div>
+                                          </li><li ng-repeat="(key, fivePopular) in fivePopular" href="front-page.html" class="list-group-item list-name ng-scope">
+                                              <a href="front-page.html"><img src="images/book5.jpg" class="img-product-list hidden-xs"></a>
+                                              <h1>Mastering Django Web Development [Video]</h1>
+                                              <p class="mb5">By Kevin Veroneau </p>
+                                              <p class="mb5"><small>Modernize existing Python code and plan code migrations to Python using this definitive guide</small></p>
+                                              
+                                              
+                                              <small ng-if="fivePopular.field_date_of_publication[0].value" class=" mr10 ng-binding ng-scope mt10">Jan 2016</small>
+                                              <small class=" title-duration ng-binding mt10"><i class="fa fa-clock-o mr5"></i>1 hour</small>
+                                              
+                                              <div class="mt20 btn-group pull-right">
+                                                <a href="#" class="btn btn-default"><i class="fa fa-download fa-lg mr5"></i>Buy eBook for $21.99</span></a>
+                                                <a href="front-page.html" class="btn btn-info ">View Course <i class="fa fa-chevron-right ml5" aria-hidden="true"></i></a>
+                                              </div>
                                               <div class="clearfix">
                                               </div>
                                           </li>
@@ -457,111 +390,88 @@
                               <div role="tabpanel" class="tab-pane fade" id="recommended" aria-labelledby="recommended-tab">
                                   <div class="tabbed-content">
                                       <ul class="list-group">
-                                          <li ng-repeat="(key, fivePopular) in fivePopular" href="front-page-lo.html" class="list-group-item list-name ng-scope">
-                                              <a href="front-page-lo.html"><img src="images/book5.jpg" class="img-product-list hidden-xs"/></a>
-                                              <h1>Mastering Django Web Development [Video]</h1>
-                                              <p class="mb5">By Kevin Veroneau </p>
-                                              <p class="mb5"><small>Modernize existing Python code and plan code migrations to Python using this definitive guide</small></p>
-                                              <!-- Feefo Star Rating -->
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                                                <img src="https://dz13w8afd47il.cloudfront.net/sites/all/themes/packt_v4/images/feefo-logo-simple.png" class="simple-feefo-logo">   
-                                                <small> 56 review(s)</small>
-                                                <!-- Feefo Star Rating END -->  
-                                              <br>
-                                              <small ng-if="fivePopular.field_date_of_publication[0].value" class=" mr10 ng-binding ng-scope mt10">Jan 2016</small>
-                                              <small class=" title-duration ng-binding mt10"><i class="fa fa-clock-o mr5"></i>1 hour</small>
-                                              <br>
-                                              <a href="front-page-lo.html" class="btn btn-info pull-right btn-lg">View Title <i class="fa fa-chevron-right ml5" aria-hidden="true"></i></a>
-                                              <div class="clearfix">
-                                              </div>
-                                          </li>
-                                          <li ng-repeat="(key, fivePopular) in fivePopular" href="front-page-lo.html" class="list-group-item list-name ng-scope">
-                                          <a href="front-page-lo.html"><img src="images/book1.jpg" class="img-product-list hidden-xs"/></a>
+                                          <li ng-repeat="(key, fivePopular) in fivePopular" href="front-page.html" class="list-group-item list-name ng-scope">
+                                          <a href="front-page.html"><img src="images/book1.jpg" class="img-product-list hidden-xs"></a>
                                               <h1>Practical Machine Learning</h1>
                                               <p class="mb5">By Sunila Gollapudi</p>
                                                 <p class="mb5"><small>Modernize existing Python code and plan code migrations to Python using this definitive guide</small></p>
-                                                <!-- Feefo Star Rating -->
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                                                <img src="https://dz13w8afd47il.cloudfront.net/sites/all/themes/packt_v4/images/feefo-logo-simple.png" class="simple-feefo-logo">
-                                                <small> 35 review(s)</small>
-                                                <!-- Feefo Star Rating END -->    
-                                              <br>
+                                              
+                                              
                                               <small ng-if="fivePopular.field_date_of_publication[0].value" class=" mr10 ng-binding ng-scope mt10">Jan 2016</small>
                                               <small class=" title-duration ng-binding mt10"><i class="fa fa-clock-o mr5"></i>14 hours 02 minutes</small>
                                               <br>
-                                              <a href="front-page-lo.html" class="btn btn-info pull-right btn-lg">View Title <i class="fa fa-chevron-right ml5" aria-hidden="true"></i></a>
+                                              <div class="mt20 btn-group pull-right">
+                                                <a href="#" class="btn btn-default"><i class="fa fa-download fa-lg mr5"></i>Buy eBook for $21.99</span></a>
+                                                <a href="front-page.html" class="btn btn-info ">View Course <i class="fa fa-chevron-right ml5" aria-hidden="true"></i></a>
+                                              </div>
                                               <div class="clearfix">
                                               </div>
                                           </li>
-                                          <li ng-repeat="(key, fivePopular) in fivePopular" href="front-page-lo.html" class="list-group-item list-name ng-scope">
-                                              <a href="front-page-lo.html"><img src="images/book2.jpg" class="img-product-list hidden-xs"/></a>
+                                          <li ng-repeat="(key, fivePopular) in fivePopular" href="front-page.html" class="list-group-item list-name ng-scope">
+                                              <a href="front-page.html"><img src="images/book2.jpg" class="img-product-list hidden-xs"></a>
                                               <h1>Learning Drupal 8</h1>
                                               <p class="mb5">By Nick Abbott</p>
                                               <p class="mb5"><small>Modernize existing Python code and plan code migrations to Python using this definitive guide</small></p>
-                                              <!-- Feefo Star Rating -->
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                                                <img src="https://dz13w8afd47il.cloudfront.net/sites/all/themes/packt_v4/images/feefo-logo-simple.png" class="simple-feefo-logo">
-                                                <small> 12 review(s)</small>
-                                                <!-- Feefo Star Rating END -->   
-                                              <br>
+                                               
+                                              
                                               <small ng-if="fivePopular.field_date_of_publication[0].value" class="mr10 ng-binding ng-scope mt10">Jan 2016</small>
                                               <small class="title-duration ng-binding mt10"><i class="fa fa-clock-o mr5"></i>9 hours 50 minutes</small>
                                               <br>
-                                              <a href="front-page-lo.html" class="btn btn-info pull-right btn-lg">View Title <i class="fa fa-chevron-right ml5" aria-hidden="true"></i></a>
+                                              
+                                              <div class="mt20 btn-group pull-right">
+                                                <a href="#" class="btn btn-default"><i class="fa fa-download fa-lg mr5"></i>Buy eBook for $21.99</span></a>
+                                                <a href="front-page.html" class="btn btn-info ">View Course <i class="fa fa-chevron-right ml5" aria-hidden="true"></i></a>
+                                              </div>
                                               <div class="clearfix">
                                               </div>
                                           </li><li ng-repeat="(key, fivePopular) in fivePopular" href="/packtlib/book/Web-Development/9781785281341" class="list-group-item list-name ng-scope">
-                                              <a href="front-page-lo.html"><img src="images/book3.jpg" class="img-product-list hidden-xs"/></a>
+                                              <a href="front-page.html"><img src="images/book3.jpg" class="img-product-list hidden-xs"></a>
                                               <h1>Mastering JavaScript</h1>
                                               <p class="mb5">By Ved Antani</p>
                                               <p class="mb5"><small>Modernize existing Python code and plan code migrations to Python using this definitive guide</small></p>
-                                              <!-- Feefo Star Rating -->
-                                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                                                <img src="https://dz13w8afd47il.cloudfront.net/sites/all/themes/packt_v4/images/feefo-logo-simple.png" class="simple-feefo-logo">
-                                                <small> 0 review(s)</small>
-                                                <!-- Feefo Star Rating END -->  
-                                              <br>
+                                              
+                                              
                                               <small ng-if="fivePopular.field_date_of_publication[0].value" class="mr10 ng-binding ng-scope mt10">Jan 2016</small>
                                               <small class=" title-duration ng-binding mt10"><i class="fa fa-clock-o mr5"></i>7 hours 30 minutes</small>
                                               <br>
-                                              <a href="front-page-lo.html" class="btn btn-info pull-right btn-lg">View Title <i class="fa fa-chevron-right ml5" aria-hidden="true"></i></a>
+                                              
+                                              <div class="mt20 btn-group pull-right">
+                                                <a href="#" class="btn btn-default"><i class="fa fa-download fa-lg mr5"></i>Buy eBook for $21.99</span></a>
+                                                <a href="front-page.html" class="btn btn-info ">View Course <i class="fa fa-chevron-right ml5" aria-hidden="true"></i></a>
+                                              </div>
                                               <div class="clearfix">
                                               </div>
-                                          </li><li ng-repeat="(key, fivePopular) in fivePopular" href="front-page-lo.html" class="list-group-item list-name ng-scope">
-                                              <a href="front-page-lo.html"><img src="images/book4.jpg" class="img-product-list hidden-xs"/></a>
+                                          </li><li ng-repeat="(key, fivePopular) in fivePopular" href="front-page.html" class="list-group-item list-name ng-scope">
+                                              <a href="front-page.html"><img src="images/book4.jpg" class="img-product-list hidden-xs"></a>
                                               <h1>Learning Predictive Analytics with Python</h1>
                                               <p class="mb5">By Ashish Kumar</p>
                                               <p class="mb5"><small>Modernize existing Python code and plan code migrations to Python using this definitive guide</small></p>
-                                              <!-- Feefo Star Rating -->
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                                                <img src="https://dz13w8afd47il.cloudfront.net/sites/all/themes/packt_v4/images/feefo-logo-simple.png" class="simple-feefo-logo">
-                                                <small> 1 review(s)</small>   
-                                                <!-- Feefo Star Rating END -->   
-                                              <br>
+                                              
+                                              
                                               <small ng-if="fivePopular.field_date_of_publication[0].value" class="mr10 ng-binding ng-scope mt10">Feb 2016</small>
                                               <small class=" title-duration ng-binding mt10"><i class="fa fa-clock-o mr5"></i>10 hours 37 minutes</small>
                                               <br>
-                                              <a href="front-page-lo.html" class="btn btn-info pull-right btn-lg">View Title <i class="fa fa-chevron-right ml5" aria-hidden="true"></i></a>
+                                              
+                                              <div class="mt20 btn-group pull-right">
+                                                <a href="#" class="btn btn-default"><i class="fa fa-download fa-lg mr5"></i>Buy eBook for $21.99</span></a>
+                                                <a href="front-page.html" class="btn btn-info ">View Course <i class="fa fa-chevron-right ml5" aria-hidden="true"></i></a>
+                                              </div>
+                                              <div class="clearfix">
+                                              </div>
+                                          </li><li ng-repeat="(key, fivePopular) in fivePopular" href="front-page.html" class="list-group-item list-name ng-scope">
+                                              <a href="front-page.html"><img src="images/book5.jpg" class="img-product-list hidden-xs"></a>
+                                              <h1>Mastering Django Web Development [Video]</h1>
+                                              <p class="mb5">By Kevin Veroneau </p>
+                                              <p class="mb5"><small>Modernize existing Python code and plan code migrations to Python using this definitive guide</small></p>
+                                              
+                                              
+                                              <small ng-if="fivePopular.field_date_of_publication[0].value" class=" mr10 ng-binding ng-scope mt10">Jan 2016</small>
+                                              <small class=" title-duration ng-binding mt10"><i class="fa fa-clock-o mr5"></i>1 hour</small>
+                                              
+                                              <div class="mt20 btn-group pull-right">
+                                                <a href="#" class="btn btn-default"><i class="fa fa-download fa-lg mr5"></i>Buy eBook for $21.99</span></a>
+                                                <a href="front-page.html" class="btn btn-info ">View Course <i class="fa fa-chevron-right ml5" aria-hidden="true"></i></a>
+                                              </div>
                                               <div class="clearfix">
                                               </div>
                                           </li>
@@ -573,6 +483,7 @@
                       </div>
                     </div>
                 </div><!-- row -->
+      </div>
 			</div><!-- /#book-wrapper -->
 		</div><!-- /#page-content-wrapper -->
 	</div><!-- /#wrapper -->

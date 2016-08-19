@@ -21,7 +21,13 @@
     <link href="css/custom.css" rel="stylesheet">
     <link href="css/general.css" rel="stylesheet">
     <link href="css/bootstrap-xl.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/master/devicon.min.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/master/devicon.min.css">      
+
+    <!-- JW PLayer -->
+    <script src="http://jwpsrv.com/library/wtlhcMn8EeK6QxIxOQulpA.js"></script>
+    <script>jwplayer.key="7X7gEquLPDCl3Fb0QHfeLw6uigKrZOv2vYmh0xeIwlM=";</script>  
+
+
 
     <!-- Devicons -->
     <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/master/devicon.min.css">
@@ -43,7 +49,42 @@
 </head>
 
 <body class="language-markup">
-
+<!-- Modal -->
+            <div class="modal fade" id="pricingModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-body">
+                    <h5>Pro Payment Options</h5>
+                        <hr>
+                        <form class="">
+                          <div class="form-group">
+                            <div class="radio ml15">
+                              <label>
+                                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
+                                <b>Monthly Plan</b> - $29.99/month (billed monthly)
+                              </label>
+                            </div>
+                            <div class="radio ml15">
+                              <label>
+                                <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2" checked>
+                                <b>Annual Plan</b> - $24.99/month ($299 billed annually)
+                              </label>
+                            </div>
+                             <div class="radio ml15">
+                              <label>
+                                <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                                <b>18m Plan</b> - $23.32/month ($412 billed every 18 months)
+                              </label>
+                            </div>
+                          </div>
+                        </form>
+                  </div>
+                  <div class="modal-footer">
+                    <a href="#" class="btn btn-primary btn-lg pull-right pl15 pr15 mr5">Subscribe</a>
+                  </div>
+                </div>
+              </div>
+            </div>
  
   <!-- Modal -->
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -117,8 +158,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                   </button>
-                  <a class="navbar-brand toggle-nav" href="#menu-toggle" id="menu-toggle"><i class="fa fa-bars fa-lg"></i></a>
-                  <a class="brand-logo" href="dashboard.html"><img src="images/mapt.png"/></a>
+                  <a class="brand-logo" href="dashboard.html"><img src="images/logo.png"></a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
@@ -129,24 +169,49 @@
                     </ul>
                     <form class="navbar-form navbar-right search-nav-collapse">
                         <div class="form-group pull-right" style="display:inline;">
-                              <input class="form-control" type="text" placeholder="Search for a title...">
+                              <input class="form-control" type="text" placeholder="&#xf002;  Search the library...">
                         </div>
                     </form>
                 </div><!--/.nav-collapse -->
             </div>
         </nav>
         <div id="page-content-wrapper" class="">
-            <div class="jumbotron landingheading">
+            <div class="jumbotron landingheading mb0">
                 <div class="container">
-                  <div class="col-sm-12 text-center">
-                    <h1 class="mt90"><span>Developer</span> Skills <span>Delivered</span></h1>
-                    <h3 class="mb40">Don't just learn. Start building better software.</h3>
-                    <div class="text-center mb70">
-                    <a href="#" data-toggle="modal" data-target="#accountModal" class="btn btn-info  btn-lg pl70 pr70">Try it FREE</a>
+                  <div class="col-sm-6 text-center">
+                    <h1 class="mt50 mb20"><span>Developer</span> Skills <span>Delivered</span></h1>
+                    <h5 style="color:white;" class="mb30">Learn the most in-demand skills in software.</h5>
+                    <div class="text-center col-xl-offset-2 col-xl-8">
+                    <a href="#" data-toggle="modal" data-target="#accountModal" class="btn btn-info  btn-lg btn-block mb10">Create a FREE Account</a>
+                    or <a href="#" style="color:#FF9800;" data-toggle="modal" data-target="#myModal" class="">sign in</a> with your Packt Account
                     </div>
-                    <div class="col-sm-offset-1 col-sm-10">
-                      <img src="images/screen.png" class="img-responsive"/>
-                    </div>
+                  </div>
+                  <div class="col-sm-6 mt20 mb10">
+                      <div class="video-outline">
+                        <div id="myElement"></div>
+                        <script type="text/javascript">
+                            jwplayer("myElement").setup({
+                                file: "videos/mapt.mp4",
+                                image: "videos/mapt.jpg",
+                                width: "100%",
+                                displaytitle: "",
+                                aspectratio: "16:9",
+                                title: "Mapt - Developer Skils Delivered",
+                                displaytitle: false,
+                                skin: "glow",
+                                stretching: "uniform",
+                            });
+                        </script>
+                        </div>
+                      </div>
+                </div>
+            </div>
+            <div class="jumbotron" style="background:#222;">
+                <div class="container">
+                  <h5 class="text-center mt0" style="color: #fff;">“It is really outstanding; in my opinion it is the best service that exists.”</h5>
+                  <p class="text-center mb0" style="color: #ffab39;">Christian B. - <strong>Systems Architect at Municipal of Vienna </strong></p>
+                  <div class="">
+               
                   </div>
                 </div>
             </div>
@@ -154,21 +219,21 @@
                 <!-- Example row of columns -->
                 <div class="row">
                   <div class="col-sm-6 mb50">
-                      <h3 >Learn the most <b class="landing">in demand skills</b></h3>
+                      <h4 >Learn the most <b class="landing">in-demand skills</b></h4>
                       <h5>New and emerging tech that defines software today</h5>
                       <br>
                       <p>Whether you’re a data scientist or web developer, pentester or designer, Mapt has everything you need to stay relevant in your field – and will continue to do so as long as software continues to eat the world. Frameworks, languages, and methodologies – everything you need to stay sharp and in demand.</p>
                   </div>
                   <div class="col-sm-6 mb50">
-                      <img src="images/webdevcompanies.jpg" class="img-responsive mt90"/>
+                      <img src="images/webdevcompanies.png" class="img-responsive mt40"/>
                   </div>
                   <div class="clearfix"></div>
                   <hr>
                   <div class="col-sm-6 mt40 mb40">
-                    <img src="images/selection.png" class="img-responsive"/>
+                    <img src="images/role-cards.png" class="img-responsive"/>
                   </div>
                   <div class="col-sm-6 text-right mt40 mb40">
-                    <h3 class="mt50">The direct route to <b class="landing">what's important</b></h3>
+                    <h4 class="mt50">The direct route to <b class="landing">what's important</b></h4>
                     <h5>The most relevant content for smarter development</h5>
                     <br>
                     <p>To remain ahead of the curve you need to understand the shape of the software world. Based on research into the industry, we curate and deliver only the most relevant content to you, built around your experience and your needs. Don’t get lost in complexity – let us simplify your development journey.</p>
@@ -176,7 +241,7 @@
                   <div class="clearfix"></div>
                   <hr>
                   <div class="col-sm-6 mt40 mb40">
-                      <h3>Over <b class="landing">3,500 books</b> and <b>video courses</b></h3>
+                      <h4>Over <b class="landing">3,500 books</b> and <b>video courses</b></h4>
                       <h5>A growing library of constantly updated content.</h5>
                       <br>
                       <p>Content by devs for devs, World class reader, Niche content (technologies) but also breadth and depth of content coverage, Industry leading authors, by developers working hard and solving solving problems, actionable content, 10 years experience supporting developer learning for over a decade</p>
@@ -186,66 +251,90 @@
                       <img src="images/products.png" class="img-responsive "/>
                   </div>
                   <div class="clearfix"></div>
-                  <hr>
+                </div>
+              </div>
+              <div class="jumbotron" style="background:#222;">
+                <div class="container">
+                  <h5 class="text-center mt0" style="color: #fff;">"I’m very impressed with the coverage of topics and the speed with which they’re updated."</h5>
+                  <p class="text-center mb0" style="color: #ffab39;">David Reidy - <strong>Chief Developer at uTeach</strong></p>
+                  <div class="">
+               
+                  </div>
+                </div>
+              </div>
+              <div class="container">
+                <div class="row">
                   <h2 class="text-center mt50"><b>Subscription Plans</b></h2>
                   <h4 class="text-center mb50">Select the subscription package that works best for you</h4>
                   <div class="col-md-4">
-                    <div class="panel panel-default">
-                     <div class="panel-heading"><h3 class="text-center mt10">Monthly</h3></div>
-                     <div class="panel-body text-center pricing-body">
-                       <p class="lead mb0" style="font-size:28px"><strong>£9.99/month</strong></p>
-                     </div>
-                     <ul class="list-group list-group-flush text-center">
-                        <li class="list-group-item"><i class="icon-ok text-danger"></i> <b class="landing">Unlimited</b> eBook access</li>
-                        <li class="list-group-item"><i class="icon-ok text-danger"></i> <b class="landing">Unlimited</b> video access</li>
-                        <li class="list-group-item"><i class="icon-ok text-danger"></i> <b class="landing">Code file</b> downloads</li>
-                        <li class="list-group-item"><i class="icon-ok text-danger"></i> <b class="landing">1 Free</b> eBook or video a month</li>
-                     </ul>
+                    <div class="panel panel-default panel-pricing">
+                     <div class="panel-heading"><h3 class="text-center mt10">Basic</h3></div>
+                     <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <p class="pricing-features"><b class="landing"><i class="fa fa-chevron-circle-right mr10"></i> Unlimited</b> eBook access</p>
+                            <p class="pricing-features"><b class="landing"><i class="fa fa-chevron-circle-right mr10"></i> Unlimited</b> video access</p>
+                            <p class="pricing-features"><b class="landing"><i class="fa fa-chevron-circle-right mr10"></i> Skill Mapping</b> access</p>
+                            <p class="pricing-features"><b class="landing"><i class="fa fa-chevron-circle-right mr10"></i> Code File</b> downloads</p>
+                            <div style="visibility:hidden">
+                            <hr>
+                            <p class="pricing-features"><b class="landing"><i class="fa fa-plus-circle mr10"></i> Skill Assessments</b></p>
+                            <p class="pricing-features"><b class="landing"><i class="fa fa-plus-circle mr10"></i> Early access</b> to courses</p>
+                            <p class="pricing-features"><b class="landing"><i class="fa fa-plus-circle mr10"></i> 1 FREE eBook or Video</b> a month</p>
+                            <p class="pricing-features"><b class="landing"><i class="fa fa-plus-circle mr10"></i> Learning progress</b> tracker</p>
+                          </div>
+                        </li>
                      </ul>
                      <div class="panel-footer">
-                      <div class="col-sm-offset-2 col-sm-8">
-                       <a class="btn btn-lg btn-block btn-info mt10 mb10" href="#">Subscribe</a>
+                      <div class="col-xl-offset-2 col-xl-8">
+                       <a class="btn btn-lg btn-block btn-info mt10 mb10" href="#"> $16.66 a month</a>
                       </div>
                       <div class="clearfix"></div>
                     </div><!--/panel-footer-->
                     </div><!--/panel-->
                   </div>
                   <div class="col-md-4">
-                    <div class="panel panel-default">
-                     <div class="panel-heading"><h3 class="text-center mt10">Annual</h3></div>
-                     <div class="panel-body text-center pricing-body">
-                       <p class="lead mb0" style="font-size:28px"><strong>£99.99</strong></p>
-                     </div>
-                     <ul class="list-group list-group-flush text-center">
-                        <li class="list-group-item"><i class="icon-ok text-danger"></i> <b class="landing">Unlimited</b> eBook access</li>
-                        <li class="list-group-item"><i class="icon-ok text-danger"></i> <b class="landing">Unlimited</b> video access</li>
-                        <li class="list-group-item"><i class="icon-ok text-danger"></i> <b class="landing">Code file</b> downloads</li>
-                        <li class="list-group-item"><i class="icon-ok text-danger"></i> <b class="landing">1 Free</b> eBook or video a month</li>
+                    <div class="panel panel-default panel-pricing-featured">
+                     <div class="panel-heading"><h3 class="text-center mt10">Pro</h3></div>
+                     <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <p class="pricing-features"><b class="landing"><i class="fa fa-chevron-circle-right mr10"></i> Unlimited</b> eBook access</p>
+                            <p class="pricing-features"><b class="landing"><i class="fa fa-chevron-circle-right mr10"></i> Unlimited</b> video access</p>
+                            <p class="pricing-features"><b class="landing"><i class="fa fa-chevron-circle-right mr10"></i> Skill Mapping</b> access</p>
+                            <p class="pricing-features"><b class="landing"><i class="fa fa-chevron-circle-right mr10"></i> Code File</b> downloads</p>
+                            <hr>
+                            <p class="pricing-features"><b class="landing"><i class="fa fa-plus-circle mr10"></i> Skill Assessments</b></p>
+                            <p class="pricing-features"><b class="landing"><i class="fa fa-plus-circle mr10"></i> Early access</b> to courses</p>
+                            <p class="pricing-features"><b class="landing"><i class="fa fa-plus-circle mr10"></i> 1 FREE eBook or Video</b> a month</p>
+                            <p class="pricing-features"><b class="landing"><i class="fa fa-plus-circle mr10"></i> Learning progress</b> tracker</p>
+                        </li>
                      </ul>
                      <div class="panel-footer">
-                      <div class="col-sm-offset-2 col-sm-8">
-                       <a class="btn btn-lg btn-block btn-info mt10 mb10" href="#">Subscribe</a>
+                      <div class="col-xl-offset-2 col-xl-8">
+                       <a class="btn btn-lg btn-block btn-info mt10 mb10" href="#" data-toggle="modal" data-target="#pricingModal" type="button" > $24.99 a month<span></span></a>
                       </div>
                       <div class="clearfix"></div>
                     </div><!--/panel-footer-->
                     </div><!--/panel-->
                   </div>
                   <div class="col-md-4">
-                    <div class="panel panel-default">
-                     <div class="panel-heading"><h3 class="text-center mt10">18 Month</h3></div>
-                     <div class="panel-body text-center pricing-body">
-                       <p class="lead mb0" style="font-size:28px"><strong>£140.00</strong></p>
-                     </div>
-                     <ul class="list-group list-group-flush text-center">
-                        <li class="list-group-item"><i class="icon-ok text-danger"></i> <b class="landing">Unlimited</b> eBook access</li>
-                        <li class="list-group-item"><i class="icon-ok text-danger"></i> <b class="landing">Unlimited</b> video access</li>
-                        <li class="list-group-item"><i class="icon-ok text-danger"></i> <b class="landing">Code file</b> downloads</li>
-                        <li class="list-group-item"><i class="icon-ok text-danger"></i> <b class="landing">1 Free</b> eBook or video a month</li>
-                     </ul>
+                    <div class="panel panel-default panel-pricing">
+                     <div class="panel-heading"><h3 class="text-center mt10">Team</h3></div>
+                     <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <p class="pricing-features"><b class="landing"><i class="fa fa-chevron-circle-right mr10"></i> Unlimited</b> eBook access</p>
+                            <p class="pricing-features"><b class="landing"><i class="fa fa-chevron-circle-right mr10"></i> Unlimited</b> video access</p>
+                            <p class="pricing-features"><b class="landing"><i class="fa fa-chevron-circle-right mr10"></i> Skill Mapping</b> access</p>
+                            <p class="pricing-features"><b class="landing"><i class="fa fa-chevron-circle-right mr10"></i> Code File</b> downloads</p>
+                            <hr>
+                            <p class="pricing-features"><b class="landing"><i class="fa fa-plus-circle mr10"></i> Skill Assessments</b></p>
+                            <p class="pricing-features"><b class="landing"><i class="fa fa-plus-circle mr10"></i> Early access</b> to courses</p>
+                            <p class="pricing-features"><b class="landing"><i class="fa fa-plus-circle mr10"></i> Licence</b> management</p>
+                            <p class="pricing-features"><b class="landing"><i class="fa fa-plus-circle mr10"></i> Learning progress</b> tracker</p>
+                        </li>
                      </ul>
                      <div class="panel-footer">
-                      <div class="col-sm-offset-2 col-sm-8">
-                       <a class="btn btn-lg btn-block btn-info mt10 mb10" href="#">Subscribe</a>
+                      <div class="col-xl-offset-2 col-xl-8">
+                       <a class="btn btn-lg btn-block btn-info mt10 mb10" href="#">Learn more</a>
                       </div>
                       <div class="clearfix"></div>
                     </div><!--/panel-footer-->
@@ -267,8 +356,10 @@
 
     <!-- jQuery Script-->
     <script src="js/jquery.js"></script>
+
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
+
 
 </body>
 
