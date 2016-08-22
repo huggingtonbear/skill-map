@@ -828,7 +828,7 @@ blockquote p {
   padding: 5px;
 
 }
-.dashboard-skillcard li {
+.skillcard-learning li {
   font-size: 14px;
   list-style-position: outside;
   line-height: 1.8em;
@@ -837,8 +837,8 @@ blockquote p {
   list-style: none;
   margin: 0;
 }
-.learning-points {
-  padding-left: 15px;
+.skillcard-learning ul {
+  padding-left: 0px;
 }
 .learning-skillcard ul {
   padding-left: 10px;
