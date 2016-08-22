@@ -43,25 +43,13 @@ input[type="text"] {
   position: relative;
   float: left;
   width: 175px;
-  height: 175px;
-  margin: 5px;
+  margin: 10px;
   color: #262524;
 }
 
-.element-item > * {
-  margin: 0;
-  padding: 0;
-}
-
-.element-item .name {
-  position: absolute;
-
-  left: 10px;
-  top: 60px;
-  text-transform: none;
-  letter-spacing: 0;
-  font-size: 12px;
-  font-weight: normal;
+.element-item h5 {
+  padding: 5px;
+  margin-top: 0px;
 }
 
 .element-item .symbol {
